@@ -1,5 +1,7 @@
 package org.anaHome
 
+import mu.KLogger
+import mu.KotlinLogging
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import java.io.BufferedReader
@@ -28,9 +30,12 @@ fun main(args: Array<String>) {
 
 
 private fun startDockerCompose () {
+
+    val logger = KotlinLogging.logger {}
+
     try {
         // Step 1: Run docker-compose up to start the services
-        println("Starting Docker Compose...")
+        logger.info {"Starting Docker Compose..."}
         val processBuilder = ProcessBuilder("docker-compose", "up", "-d")
 
         // Capture the output of the docker-compose command
@@ -42,8 +47,8 @@ private fun startDockerCompose () {
         }
 
         // Print the output of the docker-compose process
-        println(output.toString())
-        println("Docker Compose started successfully.")
+        logger.info {output.toString()}
+        logger.info {"Docker Compose started successfully."}
 
     } catch (e: Exception) {
         e.printStackTrace()
