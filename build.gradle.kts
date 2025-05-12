@@ -23,7 +23,7 @@ dependencies {
 
     // PostgreSQL Driver (use H2 for in-memory testing if preferred)
     runtimeOnly("org.postgresql:postgresql")
-    implementation("com.github.docker-java:docker-java:3.2.5")
+    implementation(dependencyNotation = "com.github.docker-java:docker-java:3.2.5")
 
     // JAXB API Dependency
     implementation("javax.xml.bind:jaxb-api:2.3.1")
