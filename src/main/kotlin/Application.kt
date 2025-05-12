@@ -22,13 +22,12 @@ fun main(args: Array<String>) {
         println("i = $i")
     }
 
-    val docker = Application()
-    docker.startDockerCompose()
+    startDockerCompose()
     runApplication<Application>(*args)
 }
 
 
-private fun Application.startDockerCompose () {
+private fun startDockerCompose () {
     try {
         // Step 1: Run docker-compose up to start the services
         println("Starting Docker Compose...")
