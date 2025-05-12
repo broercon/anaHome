@@ -1,6 +1,5 @@
 package org.anaHome
 
-import mu.KLogger
 import mu.KotlinLogging
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
