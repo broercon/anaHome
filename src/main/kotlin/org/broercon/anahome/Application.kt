@@ -1,4 +1,4 @@
-package org.anaHome
+package org.anaHome.org.broercon.anahome
 
 import mu.KotlinLogging
 import org.springframework.boot.autoconfigure.SpringBootApplication
