@@ -11,7 +11,7 @@ class MeterTypeService (private val repository: MeterTypeRepository) {
     fun getByName(name: String): MeterTypeEntity? = repository.findByName(name)
     fun create(meterTypeEntity: MeterTypeEntity): MeterTypeEntity = repository.save(meterTypeEntity)
     fun save(id: Long, meterTypeEntity: MeterTypeEntity) : MeterTypeEntity {
-        if (id != meterTypeEntity.id && id != 0.toLong()) throw IllegalArgumentException("ID does not match the transferred data record")
+        if (id != meterTypeEntity.id && id != 0.toLong()) throw EntityNotFoundException("ID does not match the transferred data record")
         getById(meterTypeEntity.id)
         return repository.save(meterTypeEntity)
     }
