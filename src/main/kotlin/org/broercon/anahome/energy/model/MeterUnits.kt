@@ -13,7 +13,7 @@ import java.util.UUID
 @Table(name = "meter_units")
 data class MeterUnit(
     @Id
-    val id: UUID = UUID.randomUUID(),
+    val id: Long,
 
     val label: String, // e.g. "HT", "NT"
 

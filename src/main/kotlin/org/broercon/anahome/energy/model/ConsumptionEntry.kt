@@ -15,7 +15,7 @@ import java.time.LocalDateTime
 @Table(name = "consumption_entries")
 data class ConsumptionEntry(
     @Id
-    val id: UUID = UUID.randomUUID(),
+    val id: Long,
 
     val timestamp: LocalDateTime,
 

@@ -14,7 +14,7 @@ import java.util.UUID
 @Table(name = "meters")
 data class Meter(
     @Id
-    val id: UUID = UUID.randomUUID(),
+    val id: Long,
 
     val name: String,
 
