@@ -1,7 +1,7 @@
 import jakarta.persistence.EntityNotFoundException
-import org.anaHome.org.broercon.anahome.Application
-import org.anaHome.org.broercon.anahome.energy.metertype.MeterTypeEntity
-import org.anaHome.org.broercon.anahome.energy.metertype.MeterTypeService
+import org.broercon.anahome.Application
+import org.broercon.anahome.energy.metertype.MeterTypeEntity
+import org.broercon.anahome.energy.metertype.MeterTypeService
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired

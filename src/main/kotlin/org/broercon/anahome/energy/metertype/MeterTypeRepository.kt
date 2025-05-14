@@ -1,4 +1,4 @@
-package org.anaHome.org.broercon.anahome.energy.metertype
+package org.broercon.anahome.energy.metertype
 
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository

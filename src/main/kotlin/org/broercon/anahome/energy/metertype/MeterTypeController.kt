@@ -1,5 +1,8 @@
-package org.anaHome.org.broercon.anahome.energy.metertype
+package org.broercon.anahome.energy.metertype
 
+import org.anaHome.org.broercon.anahome.energy.metertype.RestMeterType
+import org.anaHome.org.broercon.anahome.energy.metertype.toDomain
+import org.anaHome.org.broercon.anahome.energy.metertype.toRest
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

@@ -10,7 +10,11 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 import com.fasterxml.jackson.databind.ObjectMapper
 import jakarta.persistence.EntityNotFoundException
-import org.anaHome.org.broercon.anahome.Application
+import org.broercon.anahome.Application
+import org.broercon.anahome.energy.EnergyExceptionHandle
+import org.broercon.anahome.energy.metertype.MeterTypeController
+import org.broercon.anahome.energy.metertype.MeterTypeEntity
+import org.broercon.anahome.energy.metertype.MeterTypeService
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.context.annotation.Import

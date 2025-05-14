@@ -1,5 +1,7 @@
 package org.anaHome.org.broercon.anahome.energy.metertype
 
+import org.broercon.anahome.energy.metertype.MeterTypeEntity
+
 
 data class RestMeterType(
     val id: Long,

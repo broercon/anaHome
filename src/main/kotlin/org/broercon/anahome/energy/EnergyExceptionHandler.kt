@@ -1,4 +1,4 @@
-package org.anaHome.org.broercon.anahome.energy.metertype
+package org.broercon.anahome.energy
 
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.http.HttpStatus
