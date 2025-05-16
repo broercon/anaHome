@@ -30,6 +30,4 @@ class MeterService (private val repository: MeterRepository) {
         getById(id)
         repository.deleteById(id)
     }
-
-
 }

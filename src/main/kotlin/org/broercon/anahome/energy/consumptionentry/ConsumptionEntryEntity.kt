@@ -1,4 +1,4 @@
-package org.broercon.anahome.energy.model
+package org.broercon.anahome.energy.consumptionentry
 
 
 import jakarta.persistence.Column
@@ -13,7 +13,7 @@ import java.time.LocalDateTime
 
 @Entity
 @Table(name = "consumption_entries")
-data class ConsumptionEntry(
+data class ConsumptionEntryEntity(
     @Id
     val id: Long,
 
@@ -26,5 +26,5 @@ data class ConsumptionEntry(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "meter_unit_id")
-    val meterUnitEnity: MeterUnitEntity
+    val meterUnitEntity: MeterUnitEntity
 )
