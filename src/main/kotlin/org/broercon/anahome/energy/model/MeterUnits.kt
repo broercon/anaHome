@@ -7,7 +7,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.Table
-import org.broercon.anahome.energy.meter.Meter
+import org.broercon.anahome.energy.meter.MeterEntity
 
 @Entity
 @Table(name = "meter_units")
@@ -21,5 +21,5 @@ data class MeterUnit(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "meter_id")
-    val meter: Meter
+    val meterEntity: MeterEntity
 )

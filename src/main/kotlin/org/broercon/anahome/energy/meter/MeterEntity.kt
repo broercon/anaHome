@@ -10,8 +10,8 @@ import jakarta.persistence.Table
 import org.broercon.anahome.energy.metertype.MeterTypeEntity
 
 @Entity
-@Table(name = "meters")
-data class Meter(
+@Table(name = "meter")
+data class MeterEntity(
     @Id
     val id: Long,
 
@@ -24,5 +24,5 @@ data class Meter(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "meter_type_id")
-    val meterTypeEntity: MeterTypeEntity
+    val meterTypeEntity: MeterTypeEntity?
 )

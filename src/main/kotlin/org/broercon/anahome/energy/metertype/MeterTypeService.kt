@@ -14,6 +14,6 @@ class MeterTypeService (private val repository: MeterTypeRepository) {
         getById(meterTypeEntity.id)
         return repository.save(meterTypeEntity)
     }
-    fun getById(id :Long) : MeterTypeEntity? = repository.findByIdOrNull(id)
-        ?: throw EntityNotFoundException("MeterType with id $id not found")
+    fun getById(id :Long) : MeterTypeEntity = repository.findById(id)
+        .orElseThrow { EntityNotFoundException("MeterType with id $id not found") }
 }
