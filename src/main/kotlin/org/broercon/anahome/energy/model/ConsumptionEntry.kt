@@ -8,6 +8,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.Table
+import org.broercon.anahome.energy.meterUnit.MeterUnitEntity
 import java.time.LocalDateTime
 
 @Entity
@@ -25,5 +26,5 @@ data class ConsumptionEntry(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "meter_unit_id")
-    val meterUnit: MeterUnit
+    val meterUnitEnity: MeterUnitEntity
 )

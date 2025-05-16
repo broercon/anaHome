@@ -1,4 +1,4 @@
-package org.broercon.anahome.energy.model
+package org.broercon.anahome.energy.meterUnit
 
 
 import jakarta.persistence.Entity
@@ -11,9 +11,9 @@ import org.broercon.anahome.energy.meter.MeterEntity
 
 @Entity
 @Table(name = "meter_units")
-data class MeterUnit(
+data class MeterUnitEntity(
     @Id
-    val id: Long,
+    var id: Long,
 
     val label: String, // e.g. "HT", "NT"
 
@@ -21,5 +21,5 @@ data class MeterUnit(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "meter_id")
-    val meterEntity: MeterEntity
+    val meterEntity: MeterEntity?
 )
