@@ -1,6 +1,6 @@
 package org.broercon.anahome.energy.metertype
 
-import org.anaHome.org.broercon.anahome.energy.metertype.RestMeterType
+import org.anaHome.org.broercon.anahome.energy.metertype.MeterTypeRest
 import org.anaHome.org.broercon.anahome.energy.metertype.toDomain
 import org.anaHome.org.broercon.anahome.energy.metertype.toRest
 import org.springframework.http.ResponseEntity
@@ -17,17 +17,17 @@ import org.springframework.web.bind.annotation.RestController
 class MeterTypeController(var service : MeterTypeService) {
 
     @GetMapping("")
-    fun getMeterTypes() : List<RestMeterType?> = service.getAll().toRest()
+    fun getMeterTypes() : List<MeterTypeRest?> = service.getAll().toRest()
 
     @PostMapping
-    fun create(@RequestBody dto: RestMeterType): ResponseEntity<RestMeterType> =
+    fun create(@RequestBody dto: MeterTypeRest): ResponseEntity<MeterTypeRest> =
         ResponseEntity.ok(service.create(dto.toDomain()).toRest())
 
     @GetMapping("/{id}")
-    fun getMeterTypeById(@PathVariable id: Long): RestMeterType? = service.getById(id)?.toRest()
+    fun getMeterTypeById(@PathVariable id: Long): MeterTypeRest? = service.getById(id)?.toRest()
 
     @PutMapping("/{id}")
-    fun update(@PathVariable id: Long, @RequestBody dto: RestMeterType): ResponseEntity<RestMeterType> =
+    fun update(@PathVariable id: Long, @RequestBody dto: MeterTypeRest): ResponseEntity<MeterTypeRest> =
     ResponseEntity.ok(service.save(id, dto.toDomain()).toRest())
 }
 

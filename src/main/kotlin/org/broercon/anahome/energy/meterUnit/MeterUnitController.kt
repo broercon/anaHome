@@ -1,9 +1,5 @@
 package org.broercon.anahome.energy.meterUnit
 
-import org.anaHome.org.broercon.anahome.energy.metertype.RestMeterType
-import org.anaHome.org.broercon.anahome.energy.metertype.toDomain
-import org.anaHome.org.broercon.anahome.energy.metertype.toRest
-import org.broercon.anahome.energy.metertype.MeterTypeService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping

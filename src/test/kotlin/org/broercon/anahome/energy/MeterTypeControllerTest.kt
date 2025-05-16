@@ -80,7 +80,7 @@ class MeterTypeControllerTest {
     @Test
     fun `should create new meter type`() {
         // Given
-        val newMeterType = RestMeterType(id = 0, name = "Water")
+        val newMeterType = MeterTypeRest(id = 0, name = "Water")
         val createdEntity = MeterTypeEntity(id = 1, name = "Water")
         whenever(meterTypeService.create(any())).thenReturn(createdEntity)
 
@@ -99,7 +99,7 @@ class MeterTypeControllerTest {
     @Test
     fun `should update existing meter type`() {
         // Given
-        val updateMeterType = RestMeterType(id = 1, name = "Updated Gas")
+        val updateMeterType = MeterTypeRest(id = 1, name = "Updated Gas")
         val updatedEntity = MeterTypeEntity(id = 1, name = "Updated Gas")
         whenever(meterTypeService.save(any(), any())).thenReturn(updatedEntity)
 
