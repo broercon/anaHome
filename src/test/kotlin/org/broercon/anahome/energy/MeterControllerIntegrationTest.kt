@@ -6,16 +6,10 @@ import org.broercon.anahome.energy.meter.MeterController
 import org.broercon.anahome.energy.meter.MeterEntity
 import org.broercon.anahome.energy.meter.MeterRest
 import org.broercon.anahome.energy.meter.MeterService
-import org.broercon.anahome.energy.metertype.MeterTypeController
 import org.broercon.anahome.energy.metertype.MeterTypeEntity
-import org.broercon.anahome.energy.metertype.MeterTypeService
 import org.hamcrest.Matchers.hasSize
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.InjectMocks
-import org.mockito.Mock
-import org.mockito.junit.jupiter.MockitoExtension
 import org.mockito.kotlin.any
 import org.mockito.kotlin.doNothing
 import org.mockito.kotlin.doThrow
@@ -30,7 +24,6 @@ import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
-import org.springframework.test.web.servlet.setup.MockMvcBuilders
 
 
 @Import(TestContainersConfig::class, EnergyExceptionHandle::class)
@@ -40,9 +33,6 @@ class MeterControllerTest {
 
     @MockBean
     private lateinit var service: MeterService
-
-    @MockBean
-    private lateinit var serviceMeterType: MeterTypeService
 
     @Autowired
     private lateinit var mockMvc: MockMvc

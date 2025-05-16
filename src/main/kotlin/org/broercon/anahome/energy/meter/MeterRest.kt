@@ -1,7 +1,5 @@
 package org.broercon.anahome.energy.meter
 
-import org.anaHome.org.broercon.anahome.energy.metertype.RestMeterType
-import org.broercon.anahome.energy.metertype.MeterTypeEntity
 import org.broercon.anahome.energy.metertype.MeterTypeService
 import org.springframework.stereotype.Component
 

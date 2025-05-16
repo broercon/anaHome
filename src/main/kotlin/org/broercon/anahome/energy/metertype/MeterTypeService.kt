@@ -1,7 +1,6 @@
 package org.broercon.anahome.energy.metertype
 
 import jakarta.persistence.EntityNotFoundException
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 
 @Service

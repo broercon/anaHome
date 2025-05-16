@@ -5,7 +5,6 @@ import jakarta.persistence.EntityNotFoundException
 import mu.KotlinLogging
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
-import kotlin.math.log
 
 @Service
 class MeterService (private val repository: MeterRepository) {

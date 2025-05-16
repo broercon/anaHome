@@ -1,7 +1,6 @@
 package org.broercon.anahome.energy.meter
 
 
-import jakarta.persistence.EntityNotFoundException
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
