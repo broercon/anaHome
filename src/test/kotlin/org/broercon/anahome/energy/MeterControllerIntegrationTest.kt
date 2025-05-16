@@ -7,6 +7,7 @@ import org.broercon.anahome.energy.meter.MeterEntity
 import org.broercon.anahome.energy.meter.MeterRest
 import org.broercon.anahome.energy.meter.MeterService
 import org.broercon.anahome.energy.metertype.MeterTypeEntity
+import org.broercon.anahome.energy.metertype.MeterTypeService
 import org.hamcrest.Matchers.hasSize
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -33,6 +34,11 @@ class MeterControllerTest {
 
     @MockBean
     private lateinit var service: MeterService
+
+    // For the mapping to work, the MeterTypeService must also be mocked. However, the result is
+    // not yet decisive
+    @MockBean
+    private lateinit var serviceMeterType: MeterTypeService
 
     @Autowired
     private lateinit var mockMvc: MockMvc
