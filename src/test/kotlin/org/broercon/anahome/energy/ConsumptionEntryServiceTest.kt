@@ -13,7 +13,6 @@ import org.broercon.anahome.energy.meter.MeterEntity
 import org.broercon.anahome.energy.meterUnit.MeterUnitEntity
 import org.broercon.anahome.energy.metertype.MeterTypeEntity
 import org.mockito.kotlin.whenever
-import org.springframework.data.repository.findByIdOrNull
 import java.time.LocalDateTime
 import java.util.Optional
 

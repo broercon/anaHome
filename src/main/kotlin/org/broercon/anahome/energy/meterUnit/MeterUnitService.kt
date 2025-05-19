@@ -1,7 +1,6 @@
 package org.broercon.anahome.energy.meterUnit
 
 import jakarta.persistence.EntityNotFoundException
-import org.broercon.anahome.energy.metertype.MeterTypeRepository
 import org.springframework.stereotype.Service
 
 @Service
@@ -13,7 +12,7 @@ class MeterUnitService (private val repository: MeterUnitRepository) {
         getById(meterUnitEntity.id)
         return repository.save(meterUnitEntity)
     }
-    fun getById(id :Long) : MeterUnitEntity = repository.findById(id)
+    fun getById(id: Long?) : MeterUnitEntity = repository.findById(id)
         .orElseThrow { EntityNotFoundException("MeterUnit with id $id not found") }
 
     fun delete(id: Long) {
