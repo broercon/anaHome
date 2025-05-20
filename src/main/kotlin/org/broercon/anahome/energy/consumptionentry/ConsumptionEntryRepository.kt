@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository
 
 
 @Repository
-interface ConsumptionEntryRepository : JpaRepository<ConsumptionEntryEntity, Long> {
-}
+interface ConsumptionEntryRepository : JpaRepository<ConsumptionEntryEntity, Long>
