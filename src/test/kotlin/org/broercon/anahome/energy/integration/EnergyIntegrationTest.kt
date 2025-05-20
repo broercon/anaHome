@@ -1,6 +1,7 @@
-package org.broercon.anahome.energy
+package org.broercon.anahome.energy.integration
 
 import org.broercon.anahome.Application
+import org.broercon.anahome.energy.EnergyExceptionHandle
 import org.broercon.anahome.energy.consumptionentry.ConsumptionEntryEntity
 import org.broercon.anahome.energy.consumptionentry.ConsumptionEntryRepository
 import org.broercon.anahome.energy.meter.MeterEntity

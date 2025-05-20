@@ -1,4 +1,4 @@
-package org.broercon.anahome.energy
+package org.broercon.anahome.energy.integration
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.anaHome.org.broercon.anahome.energy.metertype.MeterTypeRest
