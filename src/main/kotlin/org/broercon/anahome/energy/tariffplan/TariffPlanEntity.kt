@@ -17,7 +17,7 @@ import java.time.LocalDateTime
 data class TariffPlanEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    var id: Long? = null,
 
     val name: String,
 
@@ -26,13 +26,13 @@ data class TariffPlanEntity(
 
     @ManyToOne
     @JoinColumn(name = "meter_type_id")
-    val meterType: MeterTypeEntity?,  // Optional, if you want to associate with type
+    var meterType: MeterTypeEntity?,  // Optional, if you want to associate with type
 
     @ManyToOne
     @JoinColumn(name = "meter_id")
-    val meter: MeterEntity?,  // Optional, if you want to associate with specific meter
+    var meter: MeterEntity?,  // Optional, if you want to associate with specific meter
 
     @ManyToOne
     @JoinColumn(name = "meter_unit_id")
-    val meterUnit: MeterUnitEntity,  // Link to specific unit (e.g., HT or NT for electricity)
+    var meterUnit: MeterUnitEntity?,  // Link to specific unit (e.g., HT or NT for electricity)
     )

@@ -17,6 +17,7 @@ dependencies {
     // Spring Boot Starters
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
 
     implementation("io.github.microutils:kotlin-logging:3.0.5")
 

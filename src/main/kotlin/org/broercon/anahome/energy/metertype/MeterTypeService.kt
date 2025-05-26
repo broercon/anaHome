@@ -1,6 +1,8 @@
 package org.broercon.anahome.energy.metertype
 
 import jakarta.persistence.EntityNotFoundException
+import org.broercon.anahome.energy.meter.MeterEntity
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 
 @Service
@@ -13,6 +15,9 @@ class MeterTypeService (private val repository: MeterTypeRepository) {
         getById(meterTypeEntity.id)
         return repository.save(meterTypeEntity)
     }
-    fun getById(id :Long) : MeterTypeEntity = repository.findById(id)
-        .orElseThrow { EntityNotFoundException("MeterType with id $id not found") }
+    fun getById(id: Long?) : MeterTypeEntity {
+        val meterTypeEntity: MeterTypeEntity? = repository.findByIdOrNull(id)
+        if (meterTypeEntity == null) throw EntityNotFoundException("MeterTypeEntity not found with id: $id")
+        return meterTypeEntity
+    }
 }

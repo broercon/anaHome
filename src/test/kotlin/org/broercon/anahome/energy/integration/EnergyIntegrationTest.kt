@@ -97,5 +97,8 @@ class MeterIntegrationTest {
         Assertions.assertEquals("HT", consumption.meterUnitEntity.label)
         Assertions.assertEquals("Main meter", consumption.meterUnitEntity.meterEntity!!.name)
         Assertions.assertEquals("Electricity", consumption.meterUnitEntity.meterEntity.meterTypeEntity!!.name)
+
+
+
     }
 }
