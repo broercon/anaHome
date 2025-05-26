@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "2.1.20"
     id("org.springframework.boot") version "3.2.5"
+    id("org.jetbrains.dokka") version "1.9.20"
     id("io.spring.dependency-management") version "1.1.4"
     kotlin("plugin.spring") version "1.9.23"
     kotlin("plugin.jpa") version "1.9.23"
@@ -18,6 +19,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
 
     implementation("io.github.microutils:kotlin-logging:3.0.5")
 
