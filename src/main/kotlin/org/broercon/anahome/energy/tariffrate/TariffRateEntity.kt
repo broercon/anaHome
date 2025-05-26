@@ -20,7 +20,7 @@ data class TariffRateEntity(
 
     @ManyToOne
     @JoinColumn(name = "tariff_plan_id")
-    val tariffPlan: TariffPlanEntity,
+    var tariffPlan: TariffPlanEntity? = null,
 
     val unitPrice: BigDecimal,
 

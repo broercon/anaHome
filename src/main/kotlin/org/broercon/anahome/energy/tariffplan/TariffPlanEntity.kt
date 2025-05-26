@@ -17,7 +17,7 @@ import java.time.LocalDateTime
 data class TariffPlanEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null,
+    var id: Long?,
 
     val name: String,
 
