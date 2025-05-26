@@ -42,8 +42,6 @@ class MeterUnitServiceTest {
 
     @BeforeEach
     fun setup() {
-        val now = LocalDateTime.now()
-
         meterEntity = MeterEntity(
             id = 1,
             name = "Test Meter",
@@ -143,7 +141,7 @@ class MeterUnitServiceTest {
     fun `save throws EntityNotFoundException when meter unit not found`() {
         whenever(repository.findById(999)).thenReturn(Optional.empty())
 
-        var newMeterUnit = meterUnitEntity
+        val newMeterUnit = meterUnitEntity
         newMeterUnit.id=999
         val exception = assertThrows<EntityNotFoundException> {
 

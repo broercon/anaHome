@@ -6,7 +6,6 @@ import org.broercon.anahome.Application
 import org.broercon.anahome.energy.consumptionentry.ConsumptionEntryRest
 import org.broercon.anahome.energy.meter.MeterRest
 import org.broercon.anahome.energy.meterUnit.MeterUnitRest
-import org.broercon.anahome.energy.tariffplan.TariffPlanEntity
 import org.broercon.anahome.energy.tariffplan.TariffPlanRest
 import org.junit.jupiter.api.TestInstance
 import org.springframework.beans.factory.annotation.Autowired

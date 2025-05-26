@@ -33,7 +33,7 @@ class TariffPlanMapper(private val meterService: MeterService,
                       private val meterUnitService: MeterUnitService) {
     // Extension function (Receiver function)
     fun TariffPlanRest.toDomain(): TariffPlanEntity {
-        var tariffPlanEntity = TariffPlanEntity(
+        val tariffPlanEntity = TariffPlanEntity(
             id = this.id,
             name = this.name,
             effectiveFrom = this.effectiveFrom,

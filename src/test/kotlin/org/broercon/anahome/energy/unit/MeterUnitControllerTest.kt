@@ -52,8 +52,6 @@ class MeterUnitControllerTest {
 
     @BeforeEach
     fun setup() {
-        val now = LocalDateTime.now()
-
         meterEntity = MeterEntity(
             id = 1,
             name = "Test Meter",

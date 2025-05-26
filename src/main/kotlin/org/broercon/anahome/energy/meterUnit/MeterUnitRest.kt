@@ -1,7 +1,6 @@
 package org.broercon.anahome.energy.meterUnit
 
 import org.broercon.anahome.energy.meter.MeterService
-import org.broercon.anahome.energy.tariffplan.TariffPlanRest
 import org.springframework.stereotype.Component
 
 data class MeterUnitRest (
