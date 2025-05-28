@@ -26,13 +26,13 @@ data class TariffPlanEntity(
 
     @ManyToOne
     @JoinColumn(name = "meter_type_id")
-    var meterType: MeterTypeEntity?,  // Optional, if you want to associate with type
+    var meterType: MeterTypeEntity? = null,  // Optional, if you want to associate with type
 
     @ManyToOne
     @JoinColumn(name = "meter_id")
-    var meter: MeterEntity?,  // Optional, if you want to associate with specific meter
+    var meter: MeterEntity? = null,  // Optional, if you want to associate with specific meter
 
     @ManyToOne
     @JoinColumn(name = "meter_unit_id")
-    var meterUnit: MeterUnitEntity?,  // Link to specific unit (e.g., HT or NT for electricity)
+    var meterUnit: MeterUnitEntity? = null,  // Link to specific unit (e.g., HT or NT for electricity)
     )
