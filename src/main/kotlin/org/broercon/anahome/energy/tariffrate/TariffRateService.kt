@@ -27,9 +27,7 @@ class TariffRateService (private val repository: TariffRateRepository) {
     fun getById(id: Long?) : TariffRateEntity = repository.findById(id?:0)
         .orElseThrow { EntityNotFoundException("TariffPlan with id $id not found") }
 
-    fun getAllByTariffPlan(tariffPlanId: Long) = repository.findAll().filter {
-        it.tariffPlan!!.id == tariffPlanId
-    }
+    fun getAllByTariffPlan(tariffPlanId: Long) = repository.findByTariffPlanId(tariffPlanId)
 
     fun delete(id: Long) {
         getById(id)
@@ -51,7 +49,7 @@ class TariffRateService (private val repository: TariffRateRepository) {
 
     private fun validateNoOverlap(new: TariffRateEntity) {
         // Find existing plans for the same meter type or meter
-        var existingPlans: List<TariffRateEntity> = getAllByTariffPlan(new.tariffPlan!!.id!!)
+        var existingPlans: List<TariffRateEntity> = repository.findByTariffPlanId(new.tariffPlan!!.id!!)
         existingPlans = existingPlans.filter { it.id != new.id }
         val hasOverlap = existingPlans.any { existingPlan ->
             datesOverlap(

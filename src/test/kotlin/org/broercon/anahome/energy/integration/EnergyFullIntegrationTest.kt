@@ -7,6 +7,7 @@ import org.broercon.anahome.energy.consumptionentry.ConsumptionEntryRest
 import org.broercon.anahome.energy.meter.MeterRest
 import org.broercon.anahome.energy.meterUnit.MeterUnitRest
 import org.broercon.anahome.energy.tariffplan.TariffPlanRest
+import org.broercon.anahome.energy.tariffrate.TariffRateRest
 import org.junit.jupiter.api.TestInstance
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -140,6 +141,22 @@ class EnergyFullIntegrationTest {
             .andReturn()
         val planMeterTypId = objectMapper.readTree(result.response.contentAsString).get("id").asLong()
 
+        val PreisRateMeterType = TariffRateRest(
+            id = 1,
+            effectiveFrom = LocalDateTime.of(2025, 1, 1, 0, 0),
+            effectiveTo = LocalDateTime.of(2025, 1, 31, 0, 0),
+            unitPrice = 0.98.toBigDecimal(),
+            tariffPlanId = planMeterTypId,
+        )
+
+        result = mockMvc.perform(post("/api/energy/tariffrate")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(PreisRateMeterType)))
+            .andExpect(status().isCreated)
+            .andExpect(jsonPath("$.unitPrice").value(0.98.toBigDecimal()))
+            .andExpect(jsonPath("$.tariffPlanId").value(planMeterTypId))
+            .andReturn()
+
         val meterPreisPlan = TariffPlanRest(
             id = 1,
             name = "Preis Meter",
@@ -158,6 +175,22 @@ class EnergyFullIntegrationTest {
             .andExpect(jsonPath("$.meterId").value(meterId))
             .andReturn()
         val planMeterId = objectMapper.readTree(result.response.contentAsString).get("id").asLong()
+
+        val PreisRateMeter = TariffRateRest(
+            id = 1,
+            effectiveFrom = LocalDateTime.of(2025, 1, 1, 0, 0),
+            effectiveTo = LocalDateTime.of(2025, 1, 31, 0, 0),
+            unitPrice = 0.98.toBigDecimal(),
+            tariffPlanId = planMeterId,
+        )
+
+        result = mockMvc.perform(post("/api/energy/tariffrate")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(PreisRateMeter)))
+            .andExpect(status().isCreated)
+            .andExpect(jsonPath("$.unitPrice").value(0.98.toBigDecimal()))
+            .andExpect(jsonPath("$.tariffPlanId").value(planMeterId))
+            .andReturn()
 
         val HtPreisPlan = TariffPlanRest(
             id = 1,
@@ -178,6 +211,22 @@ class EnergyFullIntegrationTest {
             .andReturn()
         val planHtId = objectMapper.readTree(result.response.contentAsString).get("id").asLong()
 
+        val htPreisRate = TariffRateRest(
+            id = 1,
+            effectiveFrom = LocalDateTime.of(2025, 1, 1, 0, 0),
+            effectiveTo = LocalDateTime.of(2025, 1, 31, 0, 0),
+            unitPrice = 0.98.toBigDecimal(),
+            tariffPlanId = planHtId,
+        )
+
+        result = mockMvc.perform(post("/api/energy/tariffrate")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(htPreisRate)))
+            .andExpect(status().isCreated)
+            .andExpect(jsonPath("$.unitPrice").value(0.98.toBigDecimal()))
+            .andExpect(jsonPath("$.tariffPlanId").value(planHtId))
+            .andReturn()
+
         val ntPreisPlan = TariffPlanRest(
             id = 1,
             name = "Preis NT",
@@ -196,6 +245,24 @@ class EnergyFullIntegrationTest {
             .andExpect(jsonPath("$.meterUnitId").value(unitNtId))
             .andReturn()
         val planNtId = objectMapper.readTree(result.response.contentAsString).get("id").asLong()
+
+        val ntPreisRate = TariffRateRest(
+            id = 1,
+            effectiveFrom = LocalDateTime.of(2025, 1, 1, 0, 0),
+            effectiveTo = LocalDateTime.of(2025, 1, 31, 0, 0),
+            unitPrice = 0.98.toBigDecimal(),
+            tariffPlanId = planNtId,
+        )
+
+        result = mockMvc.perform(post("/api/energy/tariffrate")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(ntPreisRate)))
+            .andExpect(status().isCreated)
+            .andExpect(jsonPath("$.unitPrice").value(0.98.toBigDecimal()))
+            .andExpect(jsonPath("$.tariffPlanId").value(planNtId))
+            .andReturn()
+
+
     }
 
 

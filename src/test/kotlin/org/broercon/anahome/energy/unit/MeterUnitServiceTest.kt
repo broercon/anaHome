@@ -1,6 +1,7 @@
 package org.broercon.anahome.energy.meterunit
 
 import jakarta.persistence.EntityNotFoundException
+import org.broercon.anahome.energy.EnergyExceptionHandle
 import org.broercon.anahome.energy.meter.MeterEntity
 import org.broercon.anahome.energy.meter.MeterService
 import org.broercon.anahome.energy.meterUnit.MeterUnitEntity
@@ -18,9 +19,10 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.junit.jupiter.MockitoExtension
 import org.mockito.kotlin.*
-import java.time.LocalDateTime
+import org.springframework.context.annotation.Import
 import java.util.*
 
+@Import(TestContainersConfig::class, EnergyExceptionHandle::class)
 @ExtendWith(MockitoExtension::class)
 class MeterUnitServiceTest {
 
