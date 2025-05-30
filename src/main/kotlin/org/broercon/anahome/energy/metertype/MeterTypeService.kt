@@ -19,4 +19,8 @@ class MeterTypeService (private val repository: MeterTypeRepository) {
         if (meterTypeEntity == null) throw EntityNotFoundException("MeterTypeEntity not found with id: $id")
         return meterTypeEntity
     }
+    fun delete(id: Long) {
+        getById(id)
+        repository.deleteById(id)
+    }
 }

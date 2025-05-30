@@ -4,6 +4,7 @@ import org.anaHome.org.broercon.anahome.energy.metertype.MeterTypeRest
 import org.anaHome.org.broercon.anahome.energy.metertype.toDomain
 import org.anaHome.org.broercon.anahome.energy.metertype.toRest
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController
 class MeterTypeController(var service : MeterTypeService) {
 
     @GetMapping("")
-    fun getMeterTypes() : List<MeterTypeRest?> = service.getAll().toRest()
+    fun getMeterTypes(): List<MeterTypeRest?> = service.getAll().toRest()
 
     @PostMapping
     fun create(@RequestBody dto: MeterTypeRest): ResponseEntity<MeterTypeRest> =
@@ -28,6 +29,11 @@ class MeterTypeController(var service : MeterTypeService) {
 
     @PutMapping("/{id}")
     fun update(@PathVariable id: Long, @RequestBody dto: MeterTypeRest): ResponseEntity<MeterTypeRest> =
-    ResponseEntity.ok(service.save(id, dto.toDomain()).toRest())
-}
+        ResponseEntity.ok(service.save(id, dto.toDomain()).toRest())
 
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable id: Long): ResponseEntity<Void> {
+        service.delete(id)
+        return ResponseEntity.accepted().build()
+    }
+}
