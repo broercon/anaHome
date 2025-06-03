@@ -1,5 +1,6 @@
 package org.broercon.anahome.energy.meterUnit
 
+import org.broercon.anahome.energy.consumptionentry.ConsumptionVolumesRest
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -16,7 +17,10 @@ import java.net.URI
 class MeterUnitController (var service : MeterUnitService, var mapper : MeterUnitMapper) {
 
     @GetMapping("")
-    fun getMeterTypes() : List<MeterUnitRest?> =  mapper.run { service.getAll().toRest() }
+    fun getMeterUnit() : List<MeterUnitRest?> =  mapper.run { service.getAll().toRest() }
+
+    @GetMapping("/{id}")
+    fun getMeterUnitById(@PathVariable id: Long): MeterUnitRest? = mapper.run { service.getById(id).toRest() }
 
     @PostMapping
     fun create(@RequestBody dto: MeterUnitRest): ResponseEntity<MeterUnitRest> {
@@ -25,9 +29,6 @@ class MeterUnitController (var service : MeterUnitService, var mapper : MeterUni
         val location = URI.create("/meter/${created.id}") // adapt path as needed
         return ResponseEntity.created(location).body(response)
     }
-
-    @GetMapping("/{id}")
-    fun getMeterTypeById(@PathVariable id: Long): MeterUnitRest? = mapper.run { service.getById(id).toRest() }
 
     @PutMapping("/{id}")
     fun update(@PathVariable id: Long, @RequestBody dto: MeterUnitRest): ResponseEntity<MeterUnitRest> =

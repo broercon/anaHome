@@ -145,8 +145,9 @@ class EnergyFullIntegrationTest {
             id = 1,
             effectiveFrom = LocalDateTime.of(2025, 1, 1, 0, 0),
             effectiveTo = LocalDateTime.of(2025, 1, 31, 0, 0),
-            unitPrice = 0.98.toBigDecimal(),
+            unitPrice = 0.98,
             tariffPlanId = planMeterTypId,
+            unit = "GP",
         )
 
         result = mockMvc.perform(post("/api/energy/tariffrate")
@@ -180,7 +181,8 @@ class EnergyFullIntegrationTest {
             id = 1,
             effectiveFrom = LocalDateTime.of(2025, 1, 1, 0, 0),
             effectiveTo = LocalDateTime.of(2025, 1, 31, 0, 0),
-            unitPrice = 0.98.toBigDecimal(),
+            unitPrice = 0.98,
+            unit = "GP",
             tariffPlanId = planMeterId,
         )
 
@@ -215,7 +217,8 @@ class EnergyFullIntegrationTest {
             id = 1,
             effectiveFrom = LocalDateTime.of(2025, 1, 1, 0, 0),
             effectiveTo = LocalDateTime.of(2025, 1, 31, 0, 0),
-            unitPrice = 0.98.toBigDecimal(),
+            unitPrice = 0.98,
+            unit = "GP",
             tariffPlanId = planHtId,
         )
 
@@ -250,7 +253,8 @@ class EnergyFullIntegrationTest {
             id = 1,
             effectiveFrom = LocalDateTime.of(2025, 1, 1, 0, 0),
             effectiveTo = LocalDateTime.of(2025, 1, 31, 0, 0),
-            unitPrice = 0.98.toBigDecimal(),
+            unitPrice = 0.98,
+            unit = "GP",
             tariffPlanId = planNtId,
         )
 

@@ -13,6 +13,12 @@ data class ConsumptionEntryRest(
     val meterUnitEntityId: Long
 )
 
+data class ConsumptionVolumesRest(
+    val total: Double,
+    val start: LocalDateTime,
+    val end: LocalDateTime,
+)
+
 @Component
 class ConsumptionEntryMapper(private val meterUnitService: MeterUnitService) {
     // Extension function (Receiver function)

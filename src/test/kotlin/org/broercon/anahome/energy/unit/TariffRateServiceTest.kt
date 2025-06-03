@@ -50,8 +50,9 @@ class TariffRateServiceTest {
         testRate = TariffRateEntity(
             id = 1L,
             tariffPlan = testTariffPlan,
-            unitPrice = 0.65.toBigDecimal(),
+            unitPrice = 0.65,
             effectiveFrom = LocalDateTime.now(),
+            unit = "GP",
             effectiveTo = LocalDateTime.now().plusMonths(1),
         )
     }
@@ -132,7 +133,7 @@ class TariffRateServiceTest {
     @Test
     fun `should update tariff rate`() {
         // Given
-        val updatedRate = testRate.copy(unitPrice = BigDecimal("15.75"))
+        val updatedRate = testRate.copy(unitPrice = 15.75)
         whenever(tariffRateRepository.findById(1L)).thenReturn(Optional.of(testRate))
         whenever(tariffRateRepository.save(any())).thenReturn(updatedRate)
         whenever(tariffRateRepository.findByTariffPlanId(any()))

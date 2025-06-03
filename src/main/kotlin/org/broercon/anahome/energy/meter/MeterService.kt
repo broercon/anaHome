@@ -14,16 +14,20 @@ class MeterService (private val repository: MeterRepository) {
 
     fun getAll(): List<MeterEntity> = repository.findAll()
     fun getByName(name: String): MeterEntity? = repository.findByName(name)
+
+    fun getById(id: Long?) : MeterEntity? {
+        val meter: MeterEntity? = repository.findByIdOrNull(id)
+        if (meter == null) throw EntityNotFoundException("Meter not found with id: $id")
+        return meter
+    }
+
+    fun getByMeterType(id: Long): List<MeterEntity> = repository.findByMeterTypeEntityId(id)
+
     fun create(MeterEntity: MeterEntity): MeterEntity = repository.save(MeterEntity)
     fun save(id: Long, MeterEntity: MeterEntity) : MeterEntity {
         if (id != MeterEntity.id && id != 0.toLong()) throw EntityNotFoundException("ID does not match the transferred data record")
         getById(MeterEntity.id)
         return repository.save(MeterEntity)
-    }
-    fun getById(id: Long?) : MeterEntity? {
-        val meter: MeterEntity? = repository.findByIdOrNull(id)
-        if (meter == null) throw EntityNotFoundException("Meter not found with id: $id")
-        return meter
     }
 
     fun delete(id: Long) {

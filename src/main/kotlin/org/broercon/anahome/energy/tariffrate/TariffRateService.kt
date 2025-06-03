@@ -29,6 +29,9 @@ class TariffRateService (private val repository: TariffRateRepository) {
 
     fun getAllByTariffPlan(tariffPlanId: Long) = repository.findByTariffPlanId(tariffPlanId)
 
+    fun getByTariffPlanAndPeriod(tariffPlanId: Long, start: LocalDateTime, end: LocalDateTime ) =
+        repository.getByTariffPlanAndPeriod(tariffPlanId, start, end)
+
     fun delete(id: Long) {
         getById(id)
         repository.deleteById(id)

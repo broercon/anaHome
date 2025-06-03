@@ -18,6 +18,12 @@ class ConsumptionEntryController(var service : ConsumptionEntryService, var mapp
     @GetMapping("")
     fun getMeterTypes() : List<ConsumptionEntryRest?> = mapper.run { service.getAll().toRest() }
 
+    @GetMapping("/{id}")
+    fun getMeterTypeById(@PathVariable id: Long): ResponseEntity<ConsumptionEntryRest> {
+        val entity: ConsumptionEntryEntity? = service.getById(id)
+        return ResponseEntity<ConsumptionEntryRest>.ok(mapper.run {  entity.toRest() } )
+    }
+
     @PostMapping
     fun create(@RequestBody dto: ConsumptionEntryRest): ResponseEntity<ConsumptionEntryRest> {
         val created = mapper.run { service.create(dto.toDomain()) }
@@ -25,12 +31,6 @@ class ConsumptionEntryController(var service : ConsumptionEntryService, var mapp
         val location = URI.create("/meter/${created.id}") // adapt path as needed
 
         return ResponseEntity.created(location).body(response)
-    }
-
-    @GetMapping("/{id}")
-    fun getMeterTypeById(@PathVariable id: Long): ResponseEntity<ConsumptionEntryRest> {
-        val entity: ConsumptionEntryEntity? = service.getById(id)
-        return ResponseEntity<ConsumptionEntryRest>.ok(mapper.run {  entity.toRest() } )
     }
 
     @PutMapping("/{id}")

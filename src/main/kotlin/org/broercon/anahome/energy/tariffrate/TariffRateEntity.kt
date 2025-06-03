@@ -22,7 +22,9 @@ data class TariffRateEntity(
     @JoinColumn(name = "tariff_plan_id")
     var tariffPlan: TariffPlanEntity? = null,
 
-    val unitPrice: BigDecimal,
+    val unitPrice: Double,
+
+    val unit: String,
 
     val effectiveFrom: LocalDateTime,
     val effectiveTo: LocalDateTime? = null

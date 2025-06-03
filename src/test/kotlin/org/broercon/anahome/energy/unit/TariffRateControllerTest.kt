@@ -62,16 +62,18 @@ class TariffRateControllerTest {
         tariffRateEntity = TariffRateEntity(
             id = 1L,
             tariffPlan = tariffPlan,
-            unitPrice = 10.50.toBigDecimal(),
+            unitPrice = 10.50,
             effectiveFrom = LocalDateTime.now(),
+            unit = "GP",
             effectiveTo = LocalDateTime.now().plusMonths(1),
         )
 
         tariffRateRest = TariffRateRest(
             id = 1L,
             tariffPlanId = 1,
-            unitPrice = 10.50.toBigDecimal(),
+            unitPrice = 10.50,
             effectiveFrom = LocalDateTime.now(),
+            unit = "GP",
             effectiveTo = LocalDateTime.now().plusMonths(1),
         )
 

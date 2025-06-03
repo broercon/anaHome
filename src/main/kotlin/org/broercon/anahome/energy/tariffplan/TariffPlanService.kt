@@ -28,9 +28,11 @@ class TariffPlanService (private val repository: TariffPlanRepository) {
     fun getById(id: Long?) : TariffPlanEntity = repository.findById(id)
         .orElseThrow { EntityNotFoundException("TariffPlan with id $id not found") }
 
-    fun getByMeterType(meterTypeEntity: MeterTypeEntity) = repository.findAll().filter {
-        it.meterType == null || it.meterType == meterTypeEntity
+    fun getByMeterType(id: Long) = repository.findAll().filter {
+        it.meterType == null || it.meterType!!.id == id
     }
+
+    fun getByMeterTypeAndPeriod(id: Long, start: LocalDateTime, end: LocalDateTime) = repository.getByMeterUnitAndPeriod(id, start, end)
 
     fun findActivePlans() : List<TariffPlanEntity> = repository.findAll().filter {
         it.effectiveTo == null || it.effectiveTo.isAfter(LocalDateTime.now())
@@ -55,7 +57,7 @@ class TariffPlanService (private val repository: TariffPlanRepository) {
 
     private fun validateNoOverlapWithMeterType(newPlan: TariffPlanEntity) {
         // Find existing plans for the same meter type or meter
-        var existingPlans: List<TariffPlanEntity?>? = if (newPlan.meterType != null) getByMeterType(newPlan.meterType!!) else null
+        var existingPlans: List<TariffPlanEntity?>? = if (newPlan.meterType != null) getByMeterType(newPlan.meterType!!.id) else null
         existingPlans = existingPlans?.filter { it?.id != newPlan.id }
         val hasOverlap = existingPlans?.any { existingPlan ->
             datesOverlap(
