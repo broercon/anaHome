@@ -19,7 +19,12 @@ data class BusinessColumnRest (
     var effectiveFrom: LocalDateTime = LocalDateTime.MIN,
     var effectiveTo: LocalDateTime? = null,
 
-    var meterUnit: String = "", // HT, NT
+    var unit: String = "", // GP/AP
+
+    // HT/NT with meterUnit
+    // HT/NT with meterUnit
+    // HT/NT with meterUnit
+    var meterUnitLabel: String = "",
 
     // Value Energy
     var volume: Double = 0.0,

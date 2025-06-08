@@ -32,7 +32,12 @@ class TariffPlanService (private val repository: TariffPlanRepository) {
         it.meterType == null || it.meterType!!.id == id
     }
 
-    fun getByMeterTypeAndPeriod(id: Long, start: LocalDateTime, end: LocalDateTime) = repository.getByMeterUnitAndPeriod(id, start, end)
+    fun getByMeterTypeAndPeriod(id: Long, start: LocalDateTime, end: LocalDateTime) = repository.getByMeterTypeAndPeriod(id, start, end)
+
+    fun getByMeterAndPeriod(id: Long, start: LocalDateTime, end: LocalDateTime) = repository.getByMeterAndPeriod(id, start, end)
+
+    fun getByMeterUnitAndPeriod(id: Long, start: LocalDateTime, end: LocalDateTime) = repository.getByMeterUnitAndPeriod(id, start, end)
+
 
     fun findActivePlans() : List<TariffPlanEntity> = repository.findAll().filter {
         it.effectiveTo == null || it.effectiveTo.isAfter(LocalDateTime.now())

@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException
 import mu.KotlinLogging
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
+import java.time.LocalDateTime
 
 @Service
 class ConsumptionEntryService (private val repository: ConsumptionEntryRepository) {
@@ -41,4 +42,9 @@ class ConsumptionEntryService (private val repository: ConsumptionEntryRepositor
         getById(id)
         repository.deleteById(id)
     }
+
+    fun getVolumeByMeterTypeAndPeriod(idMeterType: Long, start: LocalDateTime, end: LocalDateTime): Double {
+       return repository.getVolumeByMeterTypeAndPeriod(idMeterType, start, end) ?: 0.toDouble()
+    }
 }
+

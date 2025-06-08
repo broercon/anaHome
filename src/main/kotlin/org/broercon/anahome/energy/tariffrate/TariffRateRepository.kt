@@ -14,9 +14,8 @@ interface TariffRateRepository : JpaRepository<TariffRateEntity, Long> {
     @Query("SELECT c " +
             "FROM TariffRateEntity c " +
             "WHERE c.tariffPlan.id = :tariffPlanId " +
-            "AND c.effectiveFrom >= :from " +
-            "AND c.effectiveFrom <= :end " +
-            "AND (c.effectiveTo < :end or c.effectiveTo is null)" )
+            "AND c.effectiveFrom <= :from " +
+            "AND (c.effectiveTo >= :end or c.effectiveTo is null)" )
     fun getByTariffPlanAndPeriod(@Param("tariffPlanId") tariffPlanId: Long,
                                 @Param("from") from: LocalDateTime,
                                 @Param("end") end: LocalDateTime): List<TariffRateEntity>
