@@ -1,9 +1,11 @@
 spring:
+  jackson:
+    time-zone: UTC
   devtools:
     restart:
       exclude: static/**,public/**
   datasource:
-    url: jdbc:postgresql://localhost:5432/myapp
+    url: jdbc:postgresql://localhost:5432/myapp?serverTimezone=UTC
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
