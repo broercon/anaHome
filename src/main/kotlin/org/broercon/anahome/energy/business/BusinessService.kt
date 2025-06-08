@@ -35,6 +35,9 @@ class BusinessService (
     fun getAllDataOfMeterType(idMeterType: Long, start: LocalDateTime, end: LocalDateTime): BusinessRest {
         val returnValue = BusinessRest()
 
+        // validate Timestamp of ConsumptionEntries
+        if (!consumptionEntryService.isVolumeByMeterTypeAndPeriod(idMeterType, start, end)) throw IllegalStateException("Start or End doesn't have an Consumption Entry.")
+
         // Fill Name of MeterType
         val meterTypeEntity = meterTypeService.getById(idMeterType)
         returnValue.nameMeterType = meterTypeEntity.name

@@ -46,5 +46,9 @@ class ConsumptionEntryService (private val repository: ConsumptionEntryRepositor
     fun getVolumeByMeterTypeAndPeriod(idMeterType: Long, start: LocalDateTime, end: LocalDateTime): Double {
        return repository.getVolumeByMeterTypeAndPeriod(idMeterType, start, end) ?: 0.toDouble()
     }
+
+    fun isVolumeByMeterTypeAndPeriod(idMeterType: Long, start: LocalDateTime, end: LocalDateTime): Boolean {
+        return repository.isVolumeByMeterTypeAndPeriod(idMeterType, start, end) ?: false
+    }
 }
 
