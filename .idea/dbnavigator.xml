@@ -58,7 +58,26 @@ values('2024-01-01', null, 0.40, 3, 'kWh')
         JOIN public.meter m ON mu.meter_id = m.id
         JOIN public.meter_types mh ON m.meter_type_id = mh.id
 where mr.timestamp = '2025-01-01'
-  and TO_CHAR(mr.timestamp, 'HH24:MI') = '00:00']]></console>
+  and TO_CHAR(mr.timestamp, 'HH24:MI') = '00:00'
+
+
+select * from public.person;
+select * from public.category;
+select * from public.purpose;
+select * from public.transaction;
+select * from public.vendor;
+
+
+insert into public.vendor (name, type) values ('DM', 'Drogerieartikel');
+insert into public.category (name, type) values ('Kindergarten', 'EXPENSE');
+
+insert into public.transaction
+(amount, description, due_date, visible, category_id, created_by_id, for_whom_id, payer_id, purpose_id, vendor_id)
+values(
+3366.00, 'Einkommen Rhenag', '2025-08-01', true,  1, 1, 1, 1, 1, null)
+)
+
+commit;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
