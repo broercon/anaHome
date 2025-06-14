@@ -10,7 +10,6 @@ import org.broercon.anahome.energy.tariffplan.TariffPlanRest
 import org.broercon.anahome.energy.tariffplan.TariffPlanService
 import org.jetbrains.annotations.NotNull
 import org.springframework.stereotype.Component
-import java.math.BigDecimal
 import java.time.LocalDateTime
 
 data class TariffRateRest(
@@ -31,7 +30,6 @@ data class TariffRateRest(
 
     @field:NotNull
     val tariffPlanId: Long,
-
     )
 
 
